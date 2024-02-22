@@ -11,8 +11,8 @@ app.use(cors());
 const connectToDB = async () => {
   try {
     await mongoose.connect('mongodb://127.0.0.1:27017/bookserviceDB', {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
+      // useNewUrlParser: true,
+      // useUnifiedTopology: true
 
     });
     console.log("connected to MongoDb");
