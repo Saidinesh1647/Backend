@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors')
 const app = express();
+const baseurl="https://backend-1-hx99.onrender.com"
 app.use(cors());
 app.use(bodyParser.json());  //it is require for get data from request body
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -59,7 +60,7 @@ const loginSchema = new mongoose.Schema({
 
 const LoginModel = mongoose.model('login', loginSchema, 'login');
 
-app.get('/api/login', async (req, res) => {
+app.get(`${baseurl}/login`, async (req, res) => {
   try {
     const data = await LoginModel.find();
     res.json(data);
@@ -69,7 +70,7 @@ app.get('/api/login', async (req, res) => {
   }
 });
 
-const port = 5000;
+const port = 6000;
 app.listen(port, () => {
-  console.log("server is started successfully");
+  console.log("server is started successfully connected "+port);
 });
