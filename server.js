@@ -39,7 +39,7 @@ const bookserviceSchema = new mongoose.Schema({
 
 const BookServices = mongoose.model('BookServices', bookserviceSchema, 'bookservices');
 
-app.get('/getbookedservice/data', async (req, res) => {
+app.get(`${baseurl}/getbookedservice/data`, async (req, res) => {
   try {
     const data = await BookServices.find();
     res.json(data);
